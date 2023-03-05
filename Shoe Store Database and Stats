@@ -1,0 +1,41 @@
+--Create a shoe store database
+
+create table shoes (id integer primary key, item text, department text, area text, aisle integer, price real);
+
+insert into shoes values
+(1, 'PRIO NEO', 'Shoes', 'Mens', 1, 79.99),
+(2, 'DILLON', 'Shoes', 'Mens', 1, 79.99 ),
+(3, 'HFS', 'Shoes', 'Mens', 1, 119.99),
+(4, 'SUNRISE', 'Shoes', 'Mens', 1, 55.99),
+(5, 'PRIO NEO', 'Shoes', 'Women', 2, 79.99),
+(6, 'DILLON', 'Shoes', 'Women', 2, 79.99),
+(7, 'SUNRISE', 'Shoes', 'Women', 2, 55.99),
+(8, 'HFS', 'Shoes', 'Women', 2, 119.99),
+(9, 'Z-TRAIL EV', 'Sandals', 'Mens', 3, 79.99),
+(10, 'Z-TREK', 'Sandals', 'Mens', 3, 59.99),
+(11, 'AQUA CLOUD', 'Sandals', 'Mens', 3, 49.99),
+(12, 'GENESIS BAREFOOT-INSPIRED SANDAL', 'Sandals', 'Mens', 3, 44.99),
+(13, 'NABOSO TRAIL', 'Sandals', 'Mens', 3, 109.99),
+(14, 'Z-TRAIL EV', 'Sandals', 'Womens', 4, 79.99),
+(15, 'Z-TREK', 'Sandals', 'Womens', 4, 59.99),
+(16, 'AQUA CLOUD', 'Sandals', 'Womens', 4, 49.99),
+(17, 'GENESIS BAREFOOT-INSPIRED SANDAL', 'Sandals', 'Womens', 4, 44.99),
+(18, 'NABOSO TRAIL', 'Sandals', 'Womens', 4, 109.99),
+(19, 'SCRAMBLER MID', 'Boots', 'Mens', 5, 135.99),
+(20, 'DAYLITE HIKER FUSION', 'Boots', 'Mens', 5, 119.99),
+(21, 'XCURSION FUSION', 'Boots', 'Mens', 5, 149.99),
+(22, 'ALPINE', 'Boots', 'Mens', 5, 159.99),
+(23, 'GRACIE', 'Boots', 'Womens', 6, 79.99),
+(24, 'TARI', 'Boots', 'Womens', 6, 134.99),
+(25, 'MIKA', 'Botts', 'Womens', 6, 149.99),
+(26, 'DAYLITE HIKER FUSION', 'Boots', 'Womens', 6, 119.99),
+(27, 'XCURSION FUSION', 'Boots', 'Womens', 6, 149.99),
+(28, 'ALPINE', 'Boots', 'Womens', 6, 159.99),
+(29, 'FEELTRUE SANDAL KIT', 'DIY', 'Universal', 0, 24.99),
+(30, 'CLASSIC KIT WITH VIBRAM CHERRY SOLES', 'DIY', 'Universal', 0, 30.99);
+
+--display the database ordered by price.
+select * from shoes order by price;
+
+--display how many mens or womens shoes per department
+select department, area, count(item) from shoes group by aisle;
