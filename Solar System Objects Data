@@ -136,4 +136,34 @@ Select * From solar_system_objects Where density < 3 and surface_gravity > 9.780
 /*Shows the max and min values for mean_radius, volum, mass, density, and surface_gravity*/
 Select Max(mean_radius), Max(volume), Max(mass), Max(density), Max(surface_gravity), Min(mean_radius), Min(volume), Min(mass), Min(density), Min(surface_gravity) From solar_system_objects;
 
+/*Return properties of only object that are planets*/
+SELECT * FROM solar_system_objects WHERE type_of_object LIKE "%planet%";
+
+/*Return count of planets*/
+SELECT COUNT(*) FROM solar_system_objects WHERE type_of_object LIKE "%planet%";
+
+/*Return only body of planets that have rings*/
+SELECT body FROM solar_system_objects WHERE type_of_object LIKE "%planet%" AND type_of_object  LIKE "%ring%";
+
+/*Return the avg of all objects mass*/
+SELECT AVG(mass) FROM solar_system_objects;
+
+/*Return surface gravity of earth*/
+
+SELECT surface_gravity FROM solar_system_objects WHERE body = "Earth";
+
+/*Return all objects where surface gravity is greater than the surface gravity of the earth*/
+SELECT body, surface_gravity FROM solar_system_objects WHERE surface_gravity > (
+    SELECT surface_gravity FROM solar_system_objects WHERE body = "Earth");
+
+
+/*Return count of each object with mean radius larger than earth and smaller than earth*/
+SELECT COUNT(*) as Count_Objects,
+    CASE
+        WHEN mean_radius_rel > 1 THEN "Big Than Earth"
+        WHEN mean_radius_rel = 1 THEN "Earth"
+        WHEN mean_radius_rel < 1 THEN "Smaller Than Earth"
+    END AS "relative_size_to_earth"
+FROM solar_system_objects
+GROUP BY relative_size_to_earth
 
