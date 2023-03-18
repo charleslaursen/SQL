@@ -69,22 +69,28 @@ Values (14, "66.9 billion", "Beverages and Pharmaceuticals");
 Insert Into wealth (billionare_id, net_worth, source_wealth)
 Values (15, "64.4 billion", "Zara");
 
-/*Return billionares table*/
+/* Return billionares table */
+
 Select * From billionares;
 
-/*Return billionare(s) from the US*/ 
+/* Return billionare(s) from the US */ 
+
 Select * From billionares Where nationality = "US";
 
-/*Return billionare(s) not from the US*/
+/* Return billionare(s) not from the US */
+
 Select * From billionares Where nationality <> "US";
 
-/*Return billionare(s) younger than 50*/
+/* Return billionare(s) younger than 50 */
+
 Select * From billionares Where age < 50;
 
-/*Return billionare(s) older than 50*/
+/* Return billionare(s) older than 50 */
+
 Select * From billionares Where age > 50;
 
-/*Return total net worth for each billionare*/
+/* Return total net worth for each billionare */
+
 SELECT billionares.fullname, wealth.net_worth
 FROM billionares
 JOIN wealth
