@@ -63,11 +63,11 @@ Where popularity > 85
 
 ;
 
-/* I determined all the songs by Bad Bunny along with their track name and popularity */
+/* I determined all the songs by Olivia Rodrigo along with their track name and popularity */
 
 Select artist_name, track_name, popularity
 From BIT_DB.Spotifydata
-Where artist_name Like '%Bad Bunny%'
+Where artist_name Like '%Olivia Rodrigo%'
 
 ;
 
@@ -79,8 +79,20 @@ Order By artist_name
 
 ;
 
+/* I used a CTE (Common Table Expression) to caluclate the average popularity for the artists in the Spotify data table. 
+Then, for every artist for every artist with an average popularity of 90 or above, showed their name, their average
+popularity, and labeled them as a "Top Star" */
 
+WITH average_popularity_CTE AS (
+SELECT Spot.artist_name, AVG(Spot.popularity) AS average_popularity
+FROM SpotifyData Spot 
+GROUP BY Spot.artist_name
+)
+ 
+SELECT  artist_name, average_popularity, 'Top Star' AS tag
+FROM average_popularity_CTE
+WHERE average_popularity>=90
 
-
+;
 
 
