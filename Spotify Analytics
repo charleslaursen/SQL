@@ -25,9 +25,18 @@ duration_ms integer NOT NULL,
 time_signature integer NOT NULL 
 )
 
+;
 /* Then I inserted the Spotify Data .csv into the table.
 
 Next, I explored the data using the following SQL. */
+
+/* I ordered the data alphabetically by artist name. */
+
+Select artist_name, track_name
+From BIT_DB.Spotifydata
+Order By artist_name asc
+
+;
 
 /* I determined the avg popularity, danceability, and energy by artist and track. */
 
@@ -35,6 +44,7 @@ SELECT artist_name, track_name, avg(popularity), avg(danceability), avg(energy)
 FROM BIT_DB.spotifydata
 GROUP BY artist_name, track_name 
 
+;
 
 /* I determined who the Top 10 artists are by popularity */
 
@@ -43,6 +53,23 @@ FROM BIT_DB.spotifydata
 ORDER BY popularity desc
 LIMIT 10
 
+;
+
+/* I determined the artists with popularity over 85 */
+
+Select artist_name, track_name, popularity
+From BIT_DB.Spotifydata
+Where popularity > 85
+
+;
+
+/* I determined all the songs by Bad Bunny along with their track name and popularity */
+
+Select artist_name, track_name, popularity
+From BIT_DB.Spotifydata
+Where artist_name Like '%Bad Bunny%'
+
+;
 
 /* I determined which artist released the longest song */
 
@@ -50,7 +77,7 @@ Select track_name, artist_name, max(duration_ms)
 From BIT_DB.Spotifydata
 Order By artist_name
 
-
+;
 
 
 
