@@ -108,7 +108,7 @@ On artist.ArtistID = album.ArtistID
 
 /* 12. Write a query that shows all the tracks, and include the album name, media type, and genre */ 
 
-Select track.Name As 'Track Name', album.Title As 'Album Title', media.Name As 'Media Type', genre.Name As'Genre'
+Select track.Name As 'Track Name', album.Title As 'Album Title', media.Name As 'Media Type', genre.Name As 'Genre'
 From chinook.tracks track
 
 Join chinook.Albums album 
