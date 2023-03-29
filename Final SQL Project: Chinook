@@ -126,7 +126,7 @@ On genre.GenreId = track.GenreId
 
 Select employ.FirstName, employ.LastName,
 Round(Sum(Invoice.Total), 2) As 'Total Sales' 
-From chinook.Employees empploy
+From chinook.Employees employ
 
 Join chinook.Customers customer 
 On customer.SupportRepId = employ.EmployeeId
