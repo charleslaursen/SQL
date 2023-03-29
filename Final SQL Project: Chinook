@@ -42,7 +42,7 @@ SELECT DISTINCT BillingCountry FROM chinook.Invoices
 SELECT employ.LastName, employ.Firstname, Invoice.InvoiceId
 FROM chinook.Employees employ
 JOIN chinook.Customers customer ON customer.SupportRepId = employ.EmployeeId
-JOIN chinook.Invoices Invoice ON Invoive.CustomerId = customer.CustomerId
+JOIN chinook.Invoices Invoice ON Invoice.CustomerId = customer.CustomerId
 
 ;
 
