@@ -1,3 +1,6 @@
+/* Download chinook zip file with the chinook.db database in it. Using SQLite, run queries on the database to collect information from the database.
+*/
+
 /* 1. Show customers who are not in the US */ 
 
 Select FirstName, LastName, CustomerId, Country 
